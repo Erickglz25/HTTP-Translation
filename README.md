@@ -12,6 +12,8 @@ Muchas apliaciones estan corriendo actualmete sobre la WEB, tales como los naveg
 
 ### Protocolo de Tranferencia de Hipertexto (HTTP)
 
+![HTTP](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP.png)
+
 HTTP (Protocolo de Tranferecia de Hipertexto) es quiza la aplicacion de protocolo mas popular usada en internet (o la Web).
 
 * HTTP Es un protocolo cliente-servidor de solicitud/respuesta asimetrica como se ilustra. Un cliente HTTP envia una mensaje de solicitud a un servidor HTTP. El seridor, en turno, regresa un mensaje de respuesta. En otras palabras, HTTP es un  protocolo de extraccion, el cliente extrae información del servidor (mientras que el servidor extrae información del cliente).
@@ -21,6 +23,8 @@ HTTP (Protocolo de Tranferecia de Hipertexto) es quiza la aplicacion de protocol
 * Citando de el RFC2616: "El protocolo de tranferencia de Hipertexto es un protocolo a nivel de aplicación usado por muchas tareas mas alla de su uso como hipertexto, tales como servidores de nombres y sistemas de gestión de objetos distribuidos, a través de la extensión de sus métodos de petición, códigos de error y headers.tales."
 
 * Cada vez que se emite una dirección URL de su navegador para obtener un recurso web utilizando HTTP e.g. http://www.nowhere123.com/index.html, el navegador convierte la URL en un mensaje de solicitud y lo envia al servidor HTTP. EL servidor HTTP interpreta la solicitud del mensaje, y te regresa un mensaje de respuesta apropiado, ya sea el recurso que solicitaste o un mensaje de error. Este proceso se ilustra a continuación
+
+![BROWSER](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_Steps.png)
 
 ### Localizador Uniforme de Recursos (URL)
 Una URL(Localizador uniforme de recursos) es usado unicamente para identificar un recurso sobre la web. URL tiene el siguiente sintaxis:
@@ -94,6 +98,8 @@ TCP / IP ( Protocolo de Control de Transmición /Protocolo de Internet ) es un c
 IP (Protocolo de internet) es un protocolo de capa de red , se ocupa de direccionamiento de red y enrutamiento . En una red IP , cada máquina se asigna una dirección IP única (por ejemplo, 165.1.2.3 ) , y el software de IP es responsable de encaminar un mensaje desde la fuente de IP a la dirección IP de destino. En IPv4 (versión 4 de IP ) , la dirección IP se compone de 4 bytes , cada uno de los rangos de 0 a 255 , separados por puntos , que se llama una forma de cuatro puntos.
 Este esquema de numeración soporta hasta 4G electrónico de la red . La última IPv6 ( IP versión 6 ) soporta más direcciones . Como memorizar el número es difícil para la mayoría de las personas, un nombre de dominio Inglés -como , como www.nowhere123.com se utiliza en su lugar. El DNS ( Servicio de nombre de dominio) traduce el nombre de dominio a la dirección IP (a través de tablas de búsqueda distribuidas ) . Una dirección IP 127.0.0.1 especial siempre se refiere a su propia máquina . Su nombre dominio es " localhost " y puede ser utilizado para la prueba de bucle local.
 
+![TCP/IP](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_OverTCPIP.png)
+
 TCP (Protocolo de control de transmisión ) es un protocolo de capa de transporte , responsable de establecer una conexión entre dos máquinas. TCP consta de 2 protocolos: TCP y UDP ( Datagrama de paquete de usuarios ) . TCP es fiable , cada paquete tiene un número de secuencia , y se espera un acuse de recibo . Un paquete será retransmitido si no es recibido por el receptor . la entrega de paquetes está garantizado en TCP . UDP no garantiza la entrega de paquetes, y por lo tanto no es fiable. Sin embargo , UDP tiene menos sobrecarga de la red y se puede utilizar para aplicaciones tales como vídeo y audio streaming , donde la fiabilidad no es crítica .
 
 TCP multiplexa aplicaciones dentro de una máquina IP . Para cada máquina de IP , TCP soportes ( multiplexa ) de hasta 65.536 puertos ( o enchufes ), desde el puerto número  0 hasta 65535. Una aplicación, tal como HTTP o FTP , se ejecuta (o escucha ) en un número determinado de puerto para las solicitudes entrantes . Puerto 0 a 1023 son pre - asignados a los protocolos populares , por ejemplo , HTTP a 80 , a los 21 FTP , Telnet a 23 , a 25 SMTP , NNTP en el 119 , y el DNS a los 53. El puerto 1024 y superiores están disponibles para los usuarios 
@@ -120,8 +126,52 @@ ___
 El cliente y el servidor HTTP se comunican mediante el envío de mensajes de texto. El cliente envía un mensaje de petición al servidor. El servidor, a su vez, devuelve un mensaje de respuesta .
 Un mensaje HTTP consta de una cabecera de mensaje y un cuerpo de mensaje opcional , separados por una línea en blanco , como se ilustra a continuación:
 
+![SOLICITUD Y RESPUESTA](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_MessageFormat.png)
+
 ###Petición de mensaje HTTP
 El formato de un mensaje de petición es el siguiente:
+
+![REQUEST](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_RequestMessage.png)
+
+**Linea de petición**
+La primera linea del encabezado es llamada linea de petición, seguida de encabezados opcionales de petición
+ La linea de petición tiene la siguiente sintaxis:
+~~~
+request-method-name request-URI HTTP-version
+~~~
+* request-method-name:El protocolo define una serie de metodos de solicitud e.g., GET,POST, HEAD y OPTIONS. El cliente puede usar uno de estos metodos pra enviar una petición al servidor.
+* request-URL: especifica la fuente solicitada
+* HTTP- version: 2 versiones estan actualmente en uso: HTTP/1.0 y HTTP/1.1
+
+Ejemplos de peticiones son:
+~~~
+GET /test.html HTTP/1.1
+HEAD /query.html HTTP/1.0
+POST /index.html HTTP/1.1
+~~~
+
+**Ecabezados de petición**
+
+Los encabezados de petición estan en la forma del nombre: valores par, multiples, separados por comas, pueden ser especificados.
+~~~
+request-header-name: request-header-value1, request-header-value2, ...
+~~~
+Ejemplos de encabezados de solicitud son:
+~~~
+Host: www.xyz.com
+Connection: Keep-Alive
+Accept: image/gif, image/jpeg, */*
+Accept-Language: us-en, fr, cn
+~~~
+
+**Ejemplo** 
+El siguiente muestra un mensaje de petición HTTP simple:
+
+![HTTP request message](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_RequestMessageExample.png)
+###Mensaje de Respuesta
+El formatode un mensaje de respuesta HTTP es el siguiente:
+![R-M](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_ResponseMessage.png)
+
 **Linea de estado**
 La primera linea es llamada "the status line" seguida de encabezados  opcionales de solicitud
 La linea de estado tiene la siguiente sintaxis
@@ -154,3 +204,6 @@ El cuerpo del mensaje de respuesta contiene la fuente de datos solicitada
 
 **Ejemplo**
 El siguiente muestra un mensaje de respuesta simple
+
+![response](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_ResponseMessageExample.png)
+
