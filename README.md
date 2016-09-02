@@ -6,6 +6,7 @@ _________________________________________________________________
 _________________________________________________________________
 #### La Web
 Internet o la web es un sistema de informacíon distribuido masivo cliente/servidor como es representado en el siguiente diagrama.
+![La web](https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/images/TheWeb.png)
 
 Muchas apliaciones estan corriendo actualmete sobre la WEB, tales como los navegadores Web, correos electronicos, transferencia de archivos, streaming de audio y video, y mucho mas. En orden de que una correcta comunicacíon tome lugar entre el cliente y el servidor, estas aplicaciones deben concordar en un nivel de aplicación de protocolo especifico tal como HTTP, FTP SMTP, POP, y etc.
 
