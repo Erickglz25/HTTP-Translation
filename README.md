@@ -23,7 +23,9 @@ HTTP (Protocolo de Tranferecia de Hipertexto) es quiza la aplicacion de protocol
 
 ### Localizador Uniforme de Recursos (URL)
 Una URL(Localizador uniforme de recursos) es usado unicamente para identificar un recurso sobre la web. URL tiene el siguiente sintaxis:
-> Protocolo://hostname:port/path-and-file-name
+~~~
+ Protocolo://hostname:port/path-and-file-name
+~~~
 
 Hay 4 partes en una URL:
 1. Protocolo: El protocolo de nivel de aplicación usado por el cliente y el servidor, e.g., HTTP, FTP, y telnet.
