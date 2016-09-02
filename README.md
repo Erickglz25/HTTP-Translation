@@ -194,7 +194,11 @@ HTTP/1.1 403 Forbidden
 Las cabeceras de respuesta están en la forma nombre : pares de valores:
 ~~~
 response-header-name: response-header-value1, response-header-value2, ...
+~~~
+
 Ejemplos de respuesta de encabezados son:
+
+~~~
  Content-Type: text/html
  Content-Length: 35
  Connection: Keep-Alive
