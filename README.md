@@ -37,12 +37,12 @@ Por ejemplo, en la URL http://www.nowhere123.com/docs/index.html, el protocolo d
 
 Otros ejemplos de URL son:
 
-
-> ftp://www.ftp.org/docs/test.txt
+~~~
+ ftp://www.ftp.org/docs/test.txt
 mailto:user@test101.com
 news:soc.culture.Singapore
 telnet://www.nowhere123.com/
-
+~~~
 
 ### Protocolo HTTP
 
@@ -66,7 +66,8 @@ Cuando este mensaje de solicitud llega al servidor , el servidor puede tomar cua
 
 Un ejemplo de una respuesta GTTP es la siguiente:
 
-> HTTP/1.1 200 OK
+~~~
+ HTTP/1.1 200 OK
 Date: Sun, 18 Oct 2009 08:56:53 GMT
 Server: Apache/2.2.14 (Win32)
 Last-Modified: Sat, 20 Nov 2004 07:16:26 GMT
@@ -76,7 +77,8 @@ Content-Length: 44
 Connection: close
 Content-Type: text/html
 X-Pad: avoid browser bug
-  
+~~~  
+
 > <html><body><h1>It works!</h1></body></html>
 
 El servidor recibe el mensaje de respuesta, lo interpreta y despliega el contenido del mensaje en la ventana del navegador de acuerdo al tipo de respuesta (Como en la cabecera de respuesta Content-Type ) . tipo de medios comunes incluyen " text / plain " , "text / html " , "image / gif" , "image / jpeg " , " audio / mpeg " , "video / mpeg " , " aplicación / pdf " y "application / pdf " 
@@ -131,19 +133,22 @@ La linea de estado tiene la siguiente sintaxis
 
 ejemplos de linea de estado son:
 
-> HTTP/1.1 200 OK
+~~~
+HTTP/1.1 200 OK
 HTTP/1.0 404 Not Found
 HTTP/1.1 403 Forbidden
+~~~
 
 ### **Encabezados de respuesta**
 Las cabeceras de respuesta están en la forma nombre : pares de valores:
-> response-header-name: response-header-value1, response-header-value2, ...
+~~~
+response-header-name: response-header-value1, response-header-value2, ...
 Ejemplos de respuesta de encabezados son:
->Content-Type: text/html
-> Content-Length: 35
-> Connection: Keep-Alive
-> Keep-Alive: timeout=15, max=100
-
+ Content-Type: text/html
+ Content-Length: 35
+ Connection: Keep-Alive
+ Keep-Alive: timeout=15, max=100
+~~~
 El cuerpo del mensaje de respuesta contiene la fuente de datos solicitada
 
 **Ejemplo**
