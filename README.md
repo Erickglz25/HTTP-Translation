@@ -1349,7 +1349,7 @@ La siguiente es una forma HTML de la muestra, que se produce por la siguiente se
 Las formas contienen campos. Los tipos de campos incluyen:
 
 
-
+~~~
 * Text Box: producido por <input type="text">.
 
 * Password Box: producido por <input type="password">.
@@ -1360,7 +1360,6 @@ Las formas contienen campos. Los tipos de campos incluyen:
 
 * Selection: producido por <select> and <option>.
 
-
 * Text Area: producido por <textarea>.
 
 * Submit Button: producido por <input type="submit">.
@@ -1370,7 +1369,7 @@ Las formas contienen campos. Los tipos de campos incluyen:
 * Hidden Field: producido por <input type="hidden">.
 
 * Button: producido por <input type="button">.
-
+~~~
 
 
 Cada campo tiene un nombre y puede tomar un valor especificado. Una vez que el cliente rellena los campos y pulsa el botón de enviar, el navegador recoge cada uno de nombre y valor de los campos , los empaca pares tipo "nombre = valor", y concatena todos los campos juntos utilizando "&" como separador de campo. Esto se conoce como una cadena de consulta. La cadena de consulta se  enviará al servidor como parte de la solicitud.
